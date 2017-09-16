@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto Slab", sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  font-size: 20px;
+}
+
+body {
+  padding-bottom: 80px;
+  padding-top: 60px;
+  background: #f3ede1;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.clearfix {
+  clear: both;
+  display: table !important;
+}
+
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  background: #f3ede1;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #333;
+  transition: 0.2s;
+}
+
+header {
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background: #992F4A;
+  padding: 10px;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  line-height: 40px;
+  z-index: 1;
+}
+header .logo {
+  display: inline-block;
+}
+header .save {
+  display: inline-block;
+  float: right;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0 10px;
+  border-radius: 2px;
+}
+header .save:hover {
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.add {
+  margin: 0 auto;
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  width: calc( 100% - 20px );
+  bottom: 10px;
+  z-index: 1;
+}
+.add form {
+  width: 100%;
+  display: table;
+}
+.add form input {
+  font-family: "Roboto Slab", sans-serif;
+  display: table-cell;
+  width: 75%;
+  padding: 20px;
+  border: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-right: 0;
+  color: #333;
+  outline: none;
+  font-size: 20px;
+  background: transparent;
+}
+.add form .button {
+  width: 25%;
+  display: table-cell;
+  background: #992F4A;
+  text-align: center;
+  color: #fff;
+  border-top-right-radius: 2px;
+  font-size: 20px;
+  border-bottom-right-radius: 2px;
+}
+.add form .button:hover {
+  background: #722337;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.list {
+  padding: 10px;
+  overflow-y: scroll;
+  height: calc( 100vh - 150px );
+}
+.list .emptyList {
+  font-weight: lighter;
+  font-size: 2rem;
+  margin-top: 30vh;
+  text-align: center;
+}
+.list .item {
+  position: relative;
+  padding: 10px 10px 26px 10px;
+  margin-bottom: 5px;
+  line-height: 40px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: #333;
+}
+.list .item:after {
+  content: "";
+  display: block;
+  width: calc( 100% + 20px );
+  position: absolute;
+  left: -10px;
+  bottom: 0;
+  height: 1px;
+  background: #ccc;
+}
+.list .item * {
+  display: inline-block;
+}
+.list .item.done .status {
+  background: #BFD782;
+}
+.list .item.done .text {
+  text-decoration: line-through;
+  font-weight: bold;
+}
+.list .status {
+  width: 30px;
+  height: 30px;
+  background: #992F4A;
+  position: relative;
+  top: 5px;
+  border-radius: 50%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  margin-right: 10px;
+}
+.list .time {
+  font-weight: bold;
+  color: #888;
+  font-size: 0.6rem;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  line-height: initial;
+}
+.list .delete {
+  float: right;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0 10px;
+  border-radius: 2px;
+  margin-left: 5px;
+}
+.list .delete:hover {
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}

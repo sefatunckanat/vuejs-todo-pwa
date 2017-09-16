@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Notlarım</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#992F4A">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon.ico">
+  	<link rel="manifest" href="static/manifest.json">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+	<div id="app">
+		<transition name="fade">
+			<div class="loading" v-if="loading">
+				Yükleniyor... 
+			</div>
+		</transition>
+		<header>
+			<div class="logo">{{ appName }}</div>
+			<div class="save" v-on:click="saveTodos">Kaydet</div>
+		</header>
+		<div class="list">
+			<div class="emptyList" v-if="todos.length == 0">Listeniz Boş :(</div>
+			<div class="item" v-for="(todo,index) in todos" v-bind:class="{done: todo.done}">
+				<div class="status"></div>
+				<div class="text">
+					{{ todo.text }}
+				</div>
+				<div class="time">
+					{{ getDateTime(todo.time) }}
+				</div>
+				<div class="delete" v-on:click="deleteTodo(index)">
+					Sil
+				</div>
+				<div class="delete done" v-on:click="doneTodo(index,!todo.done)">
+					<span v-if="todo.done">Geri al</span>
+					<span v-else>Tamamla</span>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="add">
+			<form>
+				<input type="text" placeholder="Yeni madde" v-model="newTodoText">
+				<input type="submit" class="button" v-on:click="addTodo" value="Ekle">
+			</form>
+		</div>
+	</div>
+</body>
+<script src="js/offline.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/app.js"></script>
+</html>
